@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>js-array-carousel</title>
+</head>
+<body>
+
+    <div id="container">
+        <!-- parte img grande -->
+        <div id="items">
+            <div class="item active">
+                <img :src="slides[activeSlide].image" :alt="slides[activeSlide].title"></img>
+            <div class="text">
+                <h2>{{slides[activeSlide].title}}</h2>
+                <p>{{slides[activeSlide].text}}</p>
+            </div>
+            </div>
+        </div>
+        <!-- parte scorrimento img -->
+         <div id="thumbs">
+            <div v-for="slide, i in slides" class="thumb" :class="i===activeSlide ? 'active' : '' " :key="i">
+                <img :src="slide.image" alt="slide.title">
+            </div>
+
+            <div id="prev" @click="prevSlide"></div>
+            <div id="next" @click="nextSlide"></div> 
+        </div> 
+        
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="script/script.js"></script>
+</body>
+</html>
